@@ -5,12 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:   # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: auto_test
@@ -23,10 +22,14 @@ jobs:
       with:
         python-version: '3.13'
 
-    - name: Install Chrome browser
+    - name: Install Chrome and clean old chromedriver
       run: |
         sudo apt-get update
         sudo apt-get install -y wget
+        # 删除系统自带的旧 chromedriver
+        sudo rm -f /usr/bin/chromedriver
+        sudo rm -f /usr/local/bin/chromedriver
+        # 安装最新版 Chrome
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
         sudo apt-get update
