@@ -1,0 +1,5 @@
+2026-04-13 14:34:48,961 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 14:34:49,006 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-04-13 14:34:49,072 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 14:34:49,072 - INFO - 尝试登录，用户名：standard_user，密码：secret_sauce
+2026-04-13 14:34:49,145 - INFO - 截图已保存：D:\py\auto_test\reports\login_success.png

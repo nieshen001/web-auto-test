@@ -1,0 +1,17 @@
+2026-03-16 04:36:49,450 - INFO - 打开页面：https://www.saucedemo.com
+2026-03-16 04:36:49,513 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-03-16 04:36:49,564 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-03-16 04:36:49,627 - INFO - 点击元素 ('id', 'login-button')
+2026-03-16 04:36:49,627 - INFO - 尝试登录，用户名：standard_user，密码：secret_sauce
+2026-03-16 04:36:49,713 - INFO - 截图已保存：D:\py\auto_test\reports\login_success.png
+2026-03-16 04:36:53,617 - INFO - 打开页面：https://www.saucedemo.com
+2026-03-16 04:36:53,677 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-03-16 04:36:53,728 - INFO - 向元素 ('id', 'password') 输入文本：wrong_password
+2026-03-16 04:36:53,771 - INFO - 点击元素 ('id', 'login-button')
+2026-03-16 04:36:53,772 - INFO - 尝试登录，用户名：standard_user，密码：wrong_password
+2026-03-16 04:36:53,847 - INFO - 截图已保存：D:\py\auto_test\reports\login_failed.png
+2026-03-16 04:36:57,673 - INFO - 打开页面：https://www.saucedemo.com
+2026-03-16 04:36:57,731 - INFO - 向元素 ('id', 'user-name') 输入文本：locked_out_user
+2026-03-16 04:36:57,775 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-03-16 04:36:57,817 - INFO - 点击元素 ('id', 'login-button')
+2026-03-16 04:36:57,817 - INFO - 尝试登录，用户名：locked_out_user，密码：secret_sauce

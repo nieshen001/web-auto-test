@@ -1,0 +1,8 @@
+# config/config.yaml
+browser: chrome
+base_url: https://www.saucedemo.com
+implicitly_wait: 10
+explicitly_wait: 10
+reruns: 2
+reruns_delay: 1
+dingtalk_webhook: ""

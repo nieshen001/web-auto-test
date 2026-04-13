@@ -1,0 +1,20 @@
+2026-04-13 15:15:48,452 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 15:15:48,497 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-04-13 15:15:48,550 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 15:15:48,550 - INFO - 尝试登录，用户名：standard_user，密码：secret_sauce
+2026-04-13 15:15:48,615 - INFO - 截图已保存：D:\py\auto_test\reports\login_success.png
+2026-04-13 15:15:52,335 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 15:15:52,381 - INFO - 向元素 ('id', 'password') 输入文本：wrong_password
+2026-04-13 15:15:52,423 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 15:15:52,423 - INFO - 尝试登录，用户名：standard_user，密码：wrong_password
+2026-04-13 15:15:52,661 - ERROR - 测试失败，截图保存至：reports/screenshots\test_login_failed_wrong_password_failed.png
+2026-04-13 15:15:57,453 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 15:15:57,498 - INFO - 向元素 ('id', 'password') 输入文本：wrong_password
+2026-04-13 15:15:57,540 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 15:15:57,540 - INFO - 尝试登录，用户名：standard_user，密码：wrong_password
+2026-04-13 15:15:57,603 - ERROR - 测试失败，截图保存至：reports/screenshots\test_login_failed_wrong_password_failed.png
+2026-04-13 15:16:02,292 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 15:16:02,338 - INFO - 向元素 ('id', 'password') 输入文本：wrong_password
+2026-04-13 15:16:02,378 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 15:16:02,379 - INFO - 尝试登录，用户名：standard_user，密码：wrong_password
+2026-04-13 15:16:02,441 - ERROR - 测试失败，截图保存至：reports/screenshots\test_login_failed_wrong_password_failed.png

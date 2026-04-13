@@ -1,0 +1,55 @@
+name: Python Web Automation Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest test_cases/ --alluredir=allure-results --reruns=2 --reruns-delay=1 -n auto
+
+    - name: Install Allure
+      run: |
+        sudo apt-get install -y allure
+
+    - name: Generate Allure report
+      run: |
+        allure generate allure-results -o allure-report --clean
+
+    - name: Upload Allure report
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: allure-report
+
+    - name: Send DingTalk notification (optional)
+      if: ${{ secrets.DINGTALK_WEBHOOK != '' }}
+      env:
+        DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+      run: |
+        # 获取测试结果状态（上一步 pytest 的退出码）
+        if [ $? -eq 0 ]; then
+          RESULT="✅ 测试通过"
+        else
+          RESULT="❌ 测试失败"
+        fi
+        curl -X POST $DINGTALK_WEBHOOK -H 'Content-Type: application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"自动化测试完成\n结果: $RESULT\n仓库: ${{ github.repository }}\n提交: ${{ github.sha }}\"}}"

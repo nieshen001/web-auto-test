@@ -1,0 +1,12 @@
+2026-04-13 22:17:58,129 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 22:17:58,172 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-04-13 22:17:58,214 - INFO - 向元素 ('id', 'user-name') 输入文本：locked_out_user
+2026-04-13 22:17:58,226 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 22:17:58,226 - INFO - 尝试登录，用户名：standard_user，密码：secret_sauce
+2026-04-13 22:17:58,264 - INFO - 向元素 ('id', 'password') 输入文本：secret_sauce
+2026-04-13 22:17:58,307 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 22:17:58,307 - INFO - 尝试登录，用户名：locked_out_user，密码：secret_sauce
+2026-04-13 22:17:58,394 - INFO - 向元素 ('id', 'user-name') 输入文本：standard_user
+2026-04-13 22:17:58,440 - INFO - 向元素 ('id', 'password') 输入文本：wrong_password
+2026-04-13 22:17:58,480 - INFO - 点击元素 ('id', 'login-button')
+2026-04-13 22:17:58,480 - INFO - 尝试登录，用户名：standard_user，密码：wrong_password
