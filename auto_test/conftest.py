@@ -3,20 +3,15 @@ import pytest
 import allure
 import os
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from config.settings import BASE_URL, IMPLICITLY_WAIT
 from utils.log_utils import LogUtils
 
 logger = LogUtils.get_logger()
 
-# 指定 chromedriver.exe 的路径（请根据实际位置调整）
-CHROME_DRIVER_PATH = r"D:\py\auto_test\chromedriver.exe"
-
 @pytest.fixture(scope="function")
 def driver():
-    """每个测试用例独立启动一个浏览器实例，使用手动指定的 ChromeDriver"""
-    service = Service(CHROME_DRIVER_PATH)
-    _driver = webdriver.Chrome(service=service)
+    """每个测试用例独立启动一个浏览器实例，Selenium 自动管理 ChromeDriver"""
+    _driver = webdriver.Chrome()  # 自动下载匹配的驱动
     _driver.implicitly_wait(IMPLICITLY_WAIT)
     _driver.maximize_window()
     _driver.get(BASE_URL)
