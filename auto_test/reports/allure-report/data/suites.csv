@@ -1,4 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","146","登录测试 - 用户: standard_user","test_cases","2026-04-13","passed","2026-04-13","TestLogin","test_login","",""
-"","166","登录测试 - 用户: standard_user","test_cases","2026-04-13","passed","2026-04-13","TestLogin","test_login","",""
-"","170","登录测试 - 用户: locked_out_user","test_cases","2026-04-13","passed","2026-04-13","TestLogin","test_login","",""

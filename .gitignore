@@ -1,0 +1,32 @@
+# IDE
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs and reports
+logs/
+reports/
+*.log
+
+# Allure installation (local)
+Allure/
+
+# ChromeDriver
+chromedriver.exe
+chromedriver-win64/
+
+# Test outputs (if any)
+*.png
+*.html
+*.xml
+
+# Local config secrets (if any)
+config/config.local.yaml
+
+# Any other temporary files
+.DS_Store
+Thumbs.db

@@ -1,4 +1,0 @@
-[32mINFO    [0m utils.log_utils:base_page.py:37 向元素 ('id', 'user-name') 输入文本：standard_user
-[32mINFO    [0m utils.log_utils:base_page.py:37 向元素 ('id', 'password') 输入文本：secret_sauce
-[32mINFO    [0m utils.log_utils:base_page.py:30 点击元素 ('id', 'login-button')
-[32mINFO    [0m utils.log_utils:login_page.py:25 尝试登录，用户名：standard_user，密码：secret_sauce
