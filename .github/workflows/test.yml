@@ -31,15 +31,16 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run tests with parallel execution
       run: |
-        pytest test_cases/ --alluredir=allure-results --reruns=2 --reruns-delay=1
+        pytest test_cases/ --alluredir=allure-results --reruns=2 --reruns-delay=1 -n auto
 
     - name: Install Allure (official binary)
       run: |
         wget -q -O allure.zip https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.27.0/allure-commandline-2.27.0.zip
         unzip -q allure.zip -d /tmp/allure
         echo "/tmp/allure/allure-2.27.0/bin" >> $GITHUB_PATH
+
     - name: Generate Allure report
       run: |
         allure generate allure-results -o allure-report --clean
