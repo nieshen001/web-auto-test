@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: auto_test
+        working-directory: auto_test   # 所有命令在 auto_test 子目录中执行
 
     steps:
     - uses: actions/checkout@v4
@@ -27,10 +27,14 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run tests
-      run: pytest test_cases/ --alluredir=allure-results --reruns=2 --reruns-delay=1 -n auto
+      id: test
+      run: |
+        pytest test_cases/ --alluredir=allure-results --reruns=2 --reruns-delay=1 -n auto
 
     - name: Install Allure
-      run: sudo apt-get install -y allure
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y allure
 
     - name: Generate Allure report
       run: allure generate allure-results -o allure-report --clean
@@ -41,14 +45,16 @@ jobs:
         name: allure-report
         path: auto_test/allure-report
 
-    - name: Send DingTalk notification (optional)
-      if: ${{ secrets.DINGTALK_WEBHOOK != '' }}
+    - name: Send DingTalk notification (success)
+      if: success() && env.DINGTALK_WEBHOOK != ''
       env:
         DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
       run: |
-        if [ $? -eq 0 ]; then
-          RESULT="✅ 测试通过"
-        else
-          RESULT="❌ 测试失败"
-        fi
-        curl -X POST $DINGTALK_WEBHOOK -H 'Content-Type: application/json' -d "{\"msgtype\":\"text\",\"text\":{\"content\":\"自动化测试完成\n结果: $RESULT\n仓库: ${{ github.repository }}\n提交: ${{ github.sha }}\"}}"
+        curl -X POST $DINGTALK_WEBHOOK -H 'Content-Type: application/json' -d '{"msgtype":"text","text":{"content":"✅ 自动化测试通过\n仓库: ${{ github.repository }}\n提交: ${{ github.sha }}"}}'
+
+    - name: Send DingTalk notification (failure)
+      if: failure() && env.DINGTALK_WEBHOOK != ''
+      env:
+        DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+      run: |
+        curl -X POST $DINGTALK_WEBHOOK -H 'Content-Type: application/json' -d '{"msgtype":"text","text":{"content":"❌ 自动化测试失败\n仓库: ${{ github.repository }}\n提交: ${{ github.sha }}"}}'
