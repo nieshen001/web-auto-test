@@ -76,8 +76,8 @@ class TestLogin:
         add_button.click()
         # 进入购物车页面
         driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
-        # 点击移除按钮
-        remove_button = driver.find_element(By.CLASS_NAME, "cart_button")
+        # 点击移除按钮（通过文本定位）
+        remove_button = driver.find_element(By.XPATH, "//button[text()='Remove']")
         remove_button.click()
         # 验证购物车为空
         cart_items = driver.find_elements(By.CLASS_NAME, "cart_item")
